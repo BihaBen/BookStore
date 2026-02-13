@@ -1,8 +1,8 @@
 <?php
-require_once __DIR__ . '/../src/Database/Connection.php';
+require_once __DIR__ . '/../src/Database/BookStoreDatabase.php';
 
 try {
-    $pdo = Connection::connect();
+    $pdo = Database::connect();
     $tables = $pdo->query("SHOW TABLES")->fetchAll();
 
     # Kiírások a fejlesztőnek:
