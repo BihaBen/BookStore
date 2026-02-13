@@ -1,0 +1,52 @@
+body {
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f5f5f5;
+    font-family: Arial, sans-serif;
+}
+
+.panel {
+    background: white;
+    padding: 40px;
+    width: 350px;
+    border-radius: 10px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    text-align: center;
+
+}
+.panel label {
+    display: block;
+    text-align: left;
+    font-size: 14px;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+.panel input {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 15px;
+}
+
+.panel button {
+    width: 30%;
+    padding: 10px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.panel button:hover {
+    background-color: #0056b3;
+}
+
+.register-link {
+    display: block;
+    margin-top: 15px;
+    text-decoration: none;
+    color: #007BFF;
+}
