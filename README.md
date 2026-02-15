@@ -89,3 +89,13 @@ INSERT INTO books (title, author, isbn, available) VALUES
 ('Száz év magány', 'Gabriel García Márquez', '9789630788841', TRUE),
 ('A gyertyák csonkig égnek', 'Márai Sándor', '9789632277915', TRUE);
 
+INSERT INTO users (username, email, password, isAdmin) VALUES
+('TesztElek', 'tesztelek@gmail.com', '$2y$10$eZI86bp/DXd517ctC2mbzuf9Wp32iY9SRB5y5ClXKPFnYAViLZ24O', 0),
+('ProbaAnna', 'probaanna@gmail.com', '$2y$10$Cej3E3gL1EsvVNyH3bVEJe4w.AxvO8ibJw9ri/aMEJD.MFfrvKoMi', 0);
+
+INSERT INTO rentals (user_id, book_id, returned_at) VALUES
+(1, 1, '2026-03-02 07:40:00'),
+(2, 2, '2026-03-02 14:20:00');
+
+
+## Jelszavak: ProbaHanna00 és TesztElek00
