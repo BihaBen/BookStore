@@ -62,3 +62,30 @@
 ### rentGiveBackDisplay.php
 - Ezen a kis felületen lehet visszaadni egy kikölcsönzött könyvet.
 
+##### ELINDÍTÁS #####
+1.) Xampp letöltése.
+2.) Apache server elindítása.
+3.) MySQL adatbázis elindítása.
+4.) MySQL admin felület megnyitása.
+4.1) Új adatbázis létrehozása: bookstore_db
+4.2) Database/schema.sql importálása vagy SQL fülön bemásolás.
+4.3) Tesztadatok bemásolása a táblákhoz.
+
+##### ADATBÁZIS tesztadatok #####
+INSERT INTO books (title, author, isbn, available) VALUES
+('Tüskevár', 'Fekete István', '9789631193651', TRUE),
+('Légy jó mindhalálig', 'Móricz Zsigmond', '9789631197482', TRUE),
+('A kőszívű ember fiai', 'Jókai Mór', '9789632671189', TRUE),
+('Sorstalanság', 'Kertész Imre', '9789631437458', TRUE),
+('Esti Kornél', 'Kosztolányi Dezső', '9789631436178', TRUE),
+('Pál utcai fiúk – Ifjúsági kiadás', 'Molnár Ferenc', '9789634152457', TRUE),
+('Az ajtó', 'Szabó Magda', '9789630799250', TRUE),
+('Ida regénye', 'Gárdonyi Géza', '9789632671202', TRUE),
+('A Pendragon legenda', 'Szerb Antal', '9789630799441', TRUE),
+('Utas és holdvilág', 'Szerb Antal', '9789630798932', TRUE),
+('Iskola a határon', 'Ottlik Géza', '9789631437557', TRUE),
+('Rokonok', 'Móricz Zsigmond', '9789631437021', TRUE),
+('Az arany ember', 'Jókai Mór', '9789632671172', TRUE),
+('Száz év magány', 'Gabriel García Márquez', '9789630788841', TRUE),
+('A gyertyák csonkig égnek', 'Márai Sándor', '9789632277915', TRUE);
+
