@@ -3,7 +3,7 @@
 # Irányítások
 # Nekem a __DIR__ itt van: C:\xampp\htdocs\BOOKSTORE\src\Controller
 # A __DIR__ magára utal, melyből "/../" jellel visszalépkedek és elnavigálok a kívánt fájlhoz.
-require_once __DIR__ . '/../Database/BookStoreDatabase.php';
+require_once __DIR__ . '/..//../Database/BookStoreDatabase.php';
 require_once __DIR__ . '/../Model/User.php';
 require_once __DIR__ . '/../Repository/UserRepository.php';
 
@@ -55,8 +55,8 @@ class UserController
                 $_SESSION['username'] = (string) $row['username'];
                 $_SESSION['isAdmin'] = (bool) $row['isAdmin'];
 
-                # Ha sikeres a belépés, akkor menjünk át a könyves oldalra és ebből lépjünk ki.
-                header('Location: /BOOKSTORE/views/books_display.php');
+                # Ha sikeres belépés történt, akkor menjünk át a könyves oldalra.
+                header('Location: /BOOKSTORE/views/?action=booksDisplay');
                 exit;
 
             # Ha nem jutunk át, akkor valami hiba történt.
@@ -65,7 +65,7 @@ class UserController
             }
         }
 
-        # Újra átnavigálok: most a megjelenítési oldalra.
+        # Ha csak megnyitom az oldalt és a try catch rész kimarad.
         require __DIR__ . '/../../views/login.php';
     }
 
@@ -77,10 +77,12 @@ class UserController
         # A register felület (weboldalon) ha megindul a POST, akkor:
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
-            # Ellenőrzöm, hogy az adatmezők ki lettek-e töltve és eltárolom. (ezeket már vizsgáltam).
+            # Eltárolom változókban a regisztrációs felület mezőinek értékeit.
             $username = $_POST['username'] ?? '';
             $email = $_POST['email'] ?? '';
             $password = $_POST['password'] ?? '';
+            $passwordAgain = $_POST['password2'] ?? '';
+
 
             try {
                 # Létesítek egy adatbázis kapcsolatot.
@@ -99,11 +101,14 @@ class UserController
                     throw new RuntimeException('Ezzel az email címmel már létezik fiók.');
                 }
 
-                # Feltöltöm a User-t a saját metódusával.
-                $user = User::register($username, $email, $password);
+                # Feltöltöm a User-t a saját metódusával (Itt ellenőrzöm, hogy helyes adatokat adott meg - Ha nem akkor hibakezelés és tájékoztatás)
+                $user = User::register($username, $email, $password, $passwordAgain);
 
                 # Létrehozom az adatbázisban is a User-t.
                 $newId = $repo->create($user);
+
+                # Ha sikeres regisztráció történt, akkor menjünk át a login oldalra.
+                header('Location: /BOOKSTORE/public/index.php?action=login');
 
             } catch (Throwable $e) {
                 # Különben az $error-ban gyűjtjük.
@@ -111,7 +116,7 @@ class UserController
             }
         }
 
-        # Sikeres regisztrációkor átlépünk a login felületre.
-        require __DIR__ . '/../../views/login.php';
+        # Ha csak megnyitom az oldalt és a try catch rész kimarad.
+        require __DIR__ . '/../../views/register.php';
     }
 }

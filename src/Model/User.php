@@ -23,7 +23,7 @@ class User
     #---
     # Új User példány létrehozás
     #---
-    public static function register(string $username, string $email, string $plainPassword): self
+    public static function register(string $username, string $email, string $plainPassword, string $plainPassword2): self
     {
         # Osztály szinten vizsgálom a helyes mező adatok megadását.
         # Vizsgálata a saját osztály metódusainak meghívásával.
@@ -32,7 +32,7 @@ class User
         $email = self::validateEmail($email);
 
         # A jelszónál hiba: kivétel; helyes: hasheljük.
-        self::validatePassword($plainPassword);
+        self::validatePassword($plainPassword, $plainPassword2);
         $hashed = password_hash($plainPassword, PASSWORD_BCRYPT);
 
         # Jelenlegi idő elmentés.
@@ -85,13 +85,16 @@ class User
     }
 
     #preg_match: beépített intervallum ellenőrző.
-    public static function validatePassword(string $password): void
+    public static function validatePassword(string $password, string $password2): void
     {
+        if ($password != $password2) {
+            throw new InvalidArgumentException('A két jelszó nem egyezik meg.');
+        }
         if ($password === '') {
             throw new InvalidArgumentException('A jelszó megadása kötelező.');
         }
         if (mb_strlen($password) < 8) {
-            throw new InvalidArgumentException('A jelszó túl rövid (minimum 3 karakter) hosszúságúnak kell lennie.');
+            throw new InvalidArgumentException('A jelszó túl rövid (minimum 8 karakter) hosszúságúnak kell lennie.');
         }
         if (!preg_match('/[a-z]/', $password)) {
             throw new InvalidArgumentException('A jelszónak tartalmaznia kell kisbetűt.');
