@@ -24,7 +24,13 @@
 
             <label for="password">Jelszó: (min. 8 karakter: kis és nagybetű + szám)</label>
             <input type="password" name="password" placeholder="Példa: PeldaJelszo1" required>
+
+            <label for="password">Jelszó: még egyszer</label>
+            <input type="password" name="password2" placeholder="Példa: PeldaJelszo1" required>
+
+            <!--SUBMIT: POST alapú jel.//-->
             <button type="submit">Regisztráció</button>
+            <button type="button"  onclick="window.location.href='?action=login'">Vissza</button>
         </form>
     </div>
 
