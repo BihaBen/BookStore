@@ -56,7 +56,7 @@ class UserController
                 $_SESSION['isAdmin'] = (bool) $row['isAdmin'];
 
                 # Ha sikeres belépés történt, akkor menjünk át a könyves oldalra.
-                header('Location: /BOOKSTORE/views/?action=booksDisplay');
+                header('Location: /BOOKSTORE/public/index.php?action=booksDisplay');
                 exit;
 
             # Ha nem jutunk át, akkor valami hiba történt.
