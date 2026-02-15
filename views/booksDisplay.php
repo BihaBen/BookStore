@@ -42,10 +42,10 @@
                                 <?= htmlspecialchars($b['isbn']) ?>
                             </td>
                             <td>
-                                <button type="button"  onclick="window.location.href='?action=rent'">Kölcsönzés</button>
+                                <button type="button"  onclick="window.location.href='?action=rentShow_<?= $b['isbn'] ?>'">Kölcsönzés</button>
                             </td>
                             <td>
-                                <button type="button"  onclick="window.location.href='?action=modify'">Módosítás</button>
+                                <button type="button"  onclick="window.location.href='?action=modify_<?= $b['isbn'] ?>'">Módosítás</button>
                             </td>
                         </tr>
                     <?php endforeach; ?>

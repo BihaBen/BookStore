@@ -46,5 +46,19 @@ class BookController
         require __DIR__ . '/../../views/booksDisplay.php';
     }
 
+    # Visszaadja az éppen kölcsönözni kívánt könyv adatait.
+    # URL-ben kiveszem az actiont és a isbn számot, majd ezeket felhasználva párosítom hozzá a könyvet.
+    public function ShowActBook(string $isbn): void
+    {
+        # Csatlakozás az adatbázishoz.
+        $pdo = Database::connect();
+
+        # RentRepository példány készítés és DB lekérdezés.
+        $bookRepo = new BookRepository($pdo);
+        $book = $bookRepo->findByIsbn($isbn);
+
+        // Eredmény átadás a viewnek.
+        require __DIR__ . '/../../views/rent.php';
+    }
 
 }

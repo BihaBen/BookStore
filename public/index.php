@@ -7,6 +7,14 @@ require_once __DIR__ . '/../src/Controller/RentController.php';
 
 $action = $_GET['action'] ?? 'home';
 
+# Szétvágom az $action-t és kiszedem belőle a: valódi $action-t és az isbn számot.
+# Ez az isbn szám kiolvasása miatt kell, hogy tudjam
+if (strpos($action, "_") == true){
+    $isbnNumber= explode("_",$action)[1];
+    $action= explode("_",$action)[0];
+};
+
+
 # Cselekvést routoló switch
 switch ($action) {
     # Belépés
@@ -27,7 +35,11 @@ switch ($action) {
     case 'search':
         (new BookController())->DisplayTheSearchedBooks();
         break;
-    # Könyv megejelítés
+    # Kölcsönözni kivánt könyv megmutatása
+    case 'rentShow':
+        (new BookController())->ShowActBook((string)$isbnNumber);
+        break;
+    # Könyv foglalása
     case 'rent':
         (new RentController())->SubmitRent();
         break;
