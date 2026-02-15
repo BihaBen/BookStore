@@ -7,7 +7,7 @@ class Book
     private string $isbn;
     private bool $available;
 
-    function __construct(int $id, string $title,string $author, string $isbn, bool $available)
+    function __construct(int $id, string $title, string $author, string $isbn, bool $available)
     {
         $this->id = $id;
         $this->title = $title;
@@ -15,5 +15,4 @@ class Book
         $this->isbn = $isbn;
         $this->available = $available;
     }
-
 }
