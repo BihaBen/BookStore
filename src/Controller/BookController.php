@@ -22,4 +22,29 @@ class BookController
         # Maradunk ezen az oldalon.
         require __DIR__ . '/../../views/booksDisplay.php';
     }
+
+    # A keresőmező segítségével keresni lehet a könyvek között
+    public function DisplayTheSearchedBooks(): void
+    {
+        # Ha a keresőmezőben le lett ütve az enter, azaz be lett adva a keresés, akkor:
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+
+            # Eltárolom a keresési feltéttelt.
+            $searchbarInput = $_POST['searchbar'] ?? '';
+
+            # Csatlakozás az adatbázishoz.
+            $pdo = Database::connect();
+
+            # BookRepository példány készítés és DB lekérdezés.
+            $bookRepo = new BookRepository($pdo);
+
+            # A keresett könyvek listájának lekérése
+            $books = $bookRepo->getBackTheMatchedBooks($searchbarInput);
+
+        }
+        # Maradunk ezen az oldalon.
+        require __DIR__ . '/../../views/booksDisplay.php';
+    }
+
+
 }
