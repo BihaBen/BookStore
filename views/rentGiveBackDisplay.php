@@ -4,7 +4,7 @@
 
 <body>
 <div class="panel">
-    <h2>Kölcsönzés</h2>
+    <h2>A vissza adni kívánt könyv</h2>
 
     <?php if (!empty($error)): ?>
         <div style="color: red; margin-bottom: 15px;">
@@ -12,7 +12,7 @@
         </div>
     <?php endif; ?>
 
-    <form method="POST" action="?action=rent">
+    <form method="POST" action="?action=giveBack">
 
         <label for="bookname">A könyv címe</label>
         <input type="text" id="bookname" name="title"
@@ -29,10 +29,10 @@
                value="<?= isset($book) ? htmlspecialchars($book->getISBN()) : '' ?>"
                readonly>
 
-        <button type="submit">Kölcsönzés</button>
+        <button type="submit">Visszaad</button>
 
         <!-- stabil visszalépés: könyvlistára -->
-        <button type="button" onclick="location.href='index.php?action=booksDisplay'">Vissza</button>
+        <button type="button" onclick="location.href='index.php?action=giveBackDisplay'">Vissza</button>
     </form>
 </div>
 </body>

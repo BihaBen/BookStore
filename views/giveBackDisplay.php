@@ -8,30 +8,22 @@
 <body>
     <div class="panel">
 
-        <h2>Kölcsönzés</h2>
-
-        <!-- Keresőmező formja -->
-        <form method="POST" action="?action=search">
-
-            <!-- Külön form a POST-hoz: Keresőmező -->
-            <input id="searchBar_input" type="text" name="searchbar" placeholder="Keresőmező:">
-
-        </form>
+        <h2>A kikölcsönzött könyvek listája</h2>
 
         <form>
             <!-- Külön form a POST-hoz: könyv visszaadása -->
-            <button type="button" id="giveBack" onclick="location.href='index.php?action=giveBackDisplay'">Könyv visszaadása</button>
+             <button type="button" id="back" onclick="location.href='?action=booksDisplay'">Vissza</button>
         </form>
 
         <!-- Könyv megjelenítési form. -->
-        <form method="POST" action="?action=booksDisplay">
+        <form method="POST">
             <div class="book-info">
                 <table>
                     <tr>
                         <th>Könyv címe</th>
                         <th>Szerző</th>
                         <th>ISBN szám</th>
-                        <th>Kölcsönzés</th>
+                        <th>Visszaadás</th>
                     </tr>
                     <tr>
                         <!--Dinamikusan növő táblázat az adatbázisból lekért adatok szerint változik.//-->
@@ -48,7 +40,7 @@
                             </td>
                             <td>
                                 <button type="button"
-                                    onclick="window.location.href='?action=rentShow_<?= $b['isbn'] ?>'">Kölcsönzés</button>
+                                    onclick="window.location.href='?action=giveBackShow_<?= $b['isbn'] ?>'">Visszaadom</button>
                             </td>
                         </tr>
                     <?php endforeach; ?>

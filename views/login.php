@@ -18,7 +18,7 @@
         <form method="POST" action="?action=login">
             <input type="email" name="email" placeholder="Email cím" required>
             <input type="password" name="password" placeholder="Jelszó" required>
-            <!--SUBMIT: POST alapú jel.//-->
+            <!--SUBMIT: POST alapú jel.-->
             <button type="submit">Belépés</button>
         </form>
 

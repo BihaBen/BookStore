@@ -54,6 +54,5 @@ class BookRepository
             $row['isbn'],
             (bool) $row['available']
         );
-
     }
 }

@@ -50,3 +50,10 @@ body {
     text-decoration: none;
     color: #007BFF;
 }
+
+.disabled {
+    pointer-events: none;
+    color: gray;
+    cursor: default;
+    text-decoration: none;
+}

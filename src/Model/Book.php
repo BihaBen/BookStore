@@ -15,4 +15,22 @@ class Book
         $this->isbn = $isbn;
         $this->available = $available;
     }
+
+    public static function isAvailable(): bool{
+        $isAvailable= false;
+
+        
+        return $isAvailable;
+    }
+    
+    # Getterek a repository-hoz
+    public function getId(): int { return $this->id; }
+    public function getTitle(): string { return $this->title; }
+    public function getAuthor(): string { return $this->author; }
+    public function getISBN(): string { return $this->isbn; }
+    public function getAvailable(): bool { return $this->available; }
+
+
+
+
 }

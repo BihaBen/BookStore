@@ -65,7 +65,7 @@ class UserController
             }
         }
 
-        # Ha csak megnyitom az oldalt és a try catch rész kimarad.
+        # Ha csak megnyitom az oldalt és a try catch rész kimarad (adatok visszaadása).
         require __DIR__ . '/../../views/login.php';
     }
 
@@ -116,7 +116,7 @@ class UserController
             }
         }
 
-        # Ha csak megnyitom az oldalt és a try catch rész kimarad.
+        # Ha csak megnyitom az oldalt és a try catch rész kimarad (adatok visszaadása).
         require __DIR__ . '/../../views/register.php';
     }
 }

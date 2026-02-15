@@ -1,5 +1,5 @@
 <?php
-class Book
+class Rental
 {
     private int $id;
     private int $user_id;
@@ -15,4 +15,5 @@ class Book
         $this->rented_at = $rented_at;
         $this->returned_at = $returned_at;
     }
+ 
 }

@@ -28,9 +28,9 @@
             <label for="password">Jelszó: még egyszer</label>
             <input type="password" name="password2" placeholder="Példa: PeldaJelszo1" required>
 
-            <!--SUBMIT: POST alapú jel.//-->
+            <!--SUBMIT: POST alapú jel.-->
             <button type="submit">Regisztráció</button>
-            <button type="button"  onclick="window.location.href='?action=login'">Vissza</button>
+            <button type="button"  onclick=window.history.back(1)>Vissza</button>
         </form>
     </div>
 

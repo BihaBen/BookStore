@@ -39,15 +39,7 @@ body {
     margin-bottom: 15px;
 }
 
-.panel button {
-    width: 40%;
-    padding: 10px;
-    background-color: #007BFF;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
+
 
 .panel button:hover {
     background-color: #0056b3;
