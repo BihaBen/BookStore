@@ -18,14 +18,12 @@
         <form method="POST" action="?action=login">
             <input type="email" name="email" placeholder="Email cím" required>
             <input type="password" name="password" placeholder="Jelszó" required>
+            <!--SUBMIT: POST alapú jel.//-->
             <button type="submit">Belépés</button>
         </form>
 
         <p>Még nem regisztráltál?</p>
-
-        <a href="?action=register" class="register-link">
-            Regisztráció
-        </a>
+        <a href="?action=register" class="register-link">Regisztráció</a>
     </div>
 
 </body>
